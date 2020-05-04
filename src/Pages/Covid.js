@@ -2,6 +2,8 @@ import React from "react";
 
 import CovidTable from "../component/CovidTable";
 
+import "../css/estilo.css";
+
 class Covid extends React.Component {
   constructor(props) {
     super(props);
@@ -45,7 +47,9 @@ class Covid extends React.Component {
       <div>
         <div className="container">
           <div className="row">
-            <h1>Covid-19: Lista de paises</h1>
+            <div className="col col-md-8 offser-md-2">
+              <h1>Covid-19: Lista de paises</h1>
+            </div>
           </div>
           <div className="row">
             <div className="col col-md-8 offset-md-2">
