@@ -37,7 +37,7 @@ function CovidHook() {
         const response = await axios.get("https://api.covid19api.com/summary");
         console.log(response);
         setLoading(false);
-        setItems(response);
+        setItems(response.data.Countries);
       } catch (error) {
         setError(error);
         setLoading(false);
@@ -47,7 +47,7 @@ function CovidHook() {
     FechData();
   }, []);
 
-  console.log(items.data);
+  // console.log(items.data);
 
   if (loading) {
     return <h1>Loading...</h1>;
@@ -57,6 +57,7 @@ function CovidHook() {
   }
   // console.log(items);
   return (
+    // loading ? <h1>Loading...</h1>
     <div>
       <div className="container">
         <div className="row">
@@ -64,11 +65,13 @@ function CovidHook() {
             <h1>Covid-19: Lista de paises</h1>
           </div>
         </div>
-        <div className="row">
-          <div className="col col-md-8 offset-md-2">
-            <CovidTableHook datos={items} />
+        {items.length > 0 && (
+          <div className="row">
+            <div className="col col-md-8 offset-md-2">
+              <CovidTableHook datos={items} />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
