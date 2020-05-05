@@ -2,8 +2,8 @@ import React from "react";
 import "../css/estilo.css";
 
 function CovidTableHook(props) {
+  //asigno a datos los props enviados
   const datos = props.datos;
-  console.log(datos);
 
   return (
     <React.Fragment>
@@ -17,6 +17,7 @@ function CovidTableHook(props) {
           </tr>
         </thead>
         <tbody>
+          {/* Uso map para generar la iteracion con los datos en la tabla */}
           {datos.map((item) => (
             <tr key={item.CountryCode}>
               <td> {item.Country} </td>
